@@ -14,6 +14,7 @@ namespace Wineot
 		private static WineotRestClient _instance;
 		private static HttpClient _client;
 		private static string _baseUrl;
+		private static string _baseUrlNew;
 
 
 		public static WineotRestClient getInstance
@@ -24,8 +25,9 @@ namespace Wineot
 				{
 					_instance = new WineotRestClient();
 					_client = new HttpClient();
-					_client.MaxResponseContentBufferSize = 256000;
+					//_client.MaxResponseContentBufferSize = 256000;
 					_baseUrl = "http://5.196.65.30:8181";
+					_baseUrlNew = "http://wineot.net/api";
 				}
 				return _instance;
 			}
@@ -75,20 +77,17 @@ namespace Wineot
 
 		public async Task<WineModel> getWine(string id)
 		{
-			var uri = new Uri (_baseUrl + "/wine/" + id);
+			var uri = new Uri (_baseUrlNew + "/wine/" + id);
 			var request = new HttpRequestMessage ();
 
 			request.RequestUri = uri;
 			request.Method = HttpMethod.Get;
-			request.Headers.Add ("token", UserService.getInstance.getUser()._token);
+			//request.Headers.Add ("token", UserService.getInstance.getUser().token);
 
 			var response = await _client.SendAsync (request);
-			var content = await response.Content.ReadAsStringAsync ();
-			System.Diagnostics.Debug.WriteLine (content);
 			if (response.IsSuccessStatusCode) {
-				//var content = await response.Content.ReadAsStringAsync ();
-				//System.Diagnostics.Debug.WriteLine (content);
-				var result = JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content) ["wine"].ToString ());
+				var content = await response.Content.ReadAsStringAsync ();
+				var result = JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
 				return result;
 			} else {
 				return new WineModel();

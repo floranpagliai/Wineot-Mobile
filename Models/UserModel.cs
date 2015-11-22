@@ -7,17 +7,17 @@ namespace Wineot
 	public class UserModel
 	{
 		[JsonProperty("_id")]
-		public string _id { get; set; }
+		public string id { get; set; }
 		[JsonProperty("username")]
-		public string _username { get; set; }
+		public string username { get; set; }
 		[JsonProperty("mail")]
-		public string _email { get; set; }
+		public string email { get; set; }
 		[JsonProperty("token")]
-		public string _token { get; set; }
+		public string token { get; set; }
 		[JsonProperty("historic_wine_ids")]
-		public List<HistoricWine> _historicWines { get; set; }
+		public List<HistoricWine> historicWines { get; set; }
 		[JsonProperty("favorite_wine_ids")]
-		public List<string> _favoriteWines { get; set; }
+		public List<string> favoriteWines { get; set; }
 
 		public UserModel ()
 		{
@@ -27,9 +27,9 @@ namespace Wineot
 	public class HistoricWine
 	{
 		[JsonProperty("wine_id")]
-		public string _id { get; set; }
+		public string id { get; set; }
 		[JsonProperty("date")]
-		public string _date { get; set; }
+		public string date { get; set; }
 	}
 }
 

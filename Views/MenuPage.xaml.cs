@@ -11,6 +11,7 @@ namespace Wineot
 		{
 			this.Children.Add(new CameraPage());
 			this.Children.Add(new HistoryPage());
+			this.HeightRequest = 30;
 			InitializeComponent ();
 		}
 	}

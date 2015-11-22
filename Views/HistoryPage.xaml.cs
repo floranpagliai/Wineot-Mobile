@@ -2,22 +2,35 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace Wineot
 {
 	public partial class HistoryPage : ContentPage
 	{
+		ObservableCollection<WineModel> _wines = new ObservableCollection<WineModel>();
+
 		public HistoryPage ()
 		{
+			this.Icon = "history.png";
 			InitializeComponent ();
+
+			WineListView.ItemsSource = _wines;
+			this.GetWineHistoryAction ();
 		}
 
-		async void OnClick (object sender, EventArgs e)
+		async void GetWineHistoryAction()
 		{
-			var wines = UserService.getInstance.getUser ()._historicWines;
+			var wines = UserService.getInstance.getUser ().historicWines;
 			foreach(var wine in wines)
 			{
-				WineService.getInstance.GetWineAction (wine._id);
+				WineModel wineElem = await WineService.getInstance.GetWineAction (wine.id);
+
+				System.Diagnostics.Debug.WriteLine (wine.date);
+				//System.Diagnostics.Debug.WriteLine (wineElem.name);
+
+				if (wineElem.name != "")
+					_wines.Add (wineElem);
 			}
 		}
 	}

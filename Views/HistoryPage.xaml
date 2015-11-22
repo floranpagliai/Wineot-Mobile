@@ -1,22 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Wineot.HistoryPage" Title="Historique">
-	<ContentPage.Padding>
-		<OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
-	</ContentPage.Padding>
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<Color x:FactoryMethod="FromHex" x:Key="ButtonColor">
-				<x:Arguments>
-					<x:String>#c41230</x:String>
-				</x:Arguments>
-			</Color>
-		</ResourceDictionary>
-	</ContentPage.Resources>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:constants="clr-namespace:XamarinFormsSample;assembly=XamarinFormsXamlSample" x:Class="Wineot.HistoryPage" Title="Historique">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
-			<Entry x:Name="usernameText2" Placeholder="Nom d'utilisateur" HeightRequest="42" />
-			<Entry x:Name="passwordText2" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
-			<Button x:Name="testButon" Text="Connexion" Clicked="OnClick" />
-		</StackLayout>
+		<ListView x:Name="WineListView" SeparatorVisibility="None" RowHeight="84"  BackgroundColor="#eee" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Vertical">
+							<StackLayout Orientation="Horizontal" BackgroundColor="White" Spacing="2">
+								<Image Source="background.jpg" HeightRequest="84"/>
+								<StackLayout Orientation="Vertical" Spacing="2">
+									<Label Text="{Binding winery.name}" FontSize="12"/>
+									<Label Text="{Binding name}" />
+									<StackLayout Orientation="Horizontal">
+										<Label Text="{Binding winery.country}" FontSize="12"/>
+										<Label Text="-" FontSize="12"/>
+										<Label Text="{Binding winery.region}" FontSize="12"/>
+									</StackLayout>
+								</StackLayout>
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</ContentPage.Content>
 </ContentPage>

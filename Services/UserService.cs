@@ -7,7 +7,7 @@ namespace Wineot
 	{
 		private static UserService _instance;
 		protected static WineotRestClient _client;
-		protected UserModel _user;
+		protected UserModel user;
 
 
 		public static UserService getInstance
@@ -25,18 +25,18 @@ namespace Wineot
 
 		private UserService ()
 		{
-			_user = new UserModel ();
+			user = new UserModel ();
 		}
 
 		public UserModel getUser()
 		{
-			return _user;
+			return user;
 		}
 
 		public async Task<UserModel> LoginAction (string username, string password)
 		{
-			_user = await _client.postLogin(username, MD5CryptoServiceProvider.GetMd5String(password));
-			return _user;
+			user = await _client.postLogin(username, MD5CryptoServiceProvider.GetMd5String(password));
+			return user;
 		}
 
 		public async Task<UserModel> RegisterAction(string username, string email, string password)
