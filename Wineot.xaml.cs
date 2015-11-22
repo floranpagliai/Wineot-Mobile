@@ -4,11 +4,12 @@ using Xamarin.Forms;
 
 namespace Wineot
 {
-	public class App : Application
+	public partial class App : Application
 	{
 		public App ()
 		{
 			// The root page of your application
+			InitializeComponent();
 			MainPage = new Wineot.LoginPage ();
 		}
 

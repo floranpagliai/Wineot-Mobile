@@ -13,6 +13,7 @@ namespace Wineot
 		public HistoryPage ()
 		{
 			this.Icon = "history.png";
+			Title = "Historique"; 
 			InitializeComponent ();
 
 			WineListView.ItemsSource = _wines;

@@ -9,6 +9,7 @@ namespace Wineot
 	{
 		public MenuPage ()
 		{
+			this.Title = "Wine'ot";
 			this.Children.Add(new CameraPage());
 			this.Children.Add(new HistoryPage());
 			this.HeightRequest = 30;

@@ -3,20 +3,6 @@
 	<ContentPage.Padding>
 		<OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
 	</ContentPage.Padding>
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<Color x:FactoryMethod="FromHex" x:Key="ButtonColor">
-				<x:Arguments>
-					<x:String>#c41230</x:String>
-				</x:Arguments>
-			</Color>
-			<Color x:FactoryMethod="FromHex" x:Key="FontColor">
-				<x:Arguments>
-					<x:String>#6b6b6b</x:String>
-				</x:Arguments>
-			</Color>
-		</ResourceDictionary>
-	</ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
 			<StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" HeightRequest="90">
@@ -24,10 +10,10 @@
 			</StackLayout>
 			<Entry x:Name="usernameText" Placeholder="Nom d'utilisateur" HeightRequest="42" ><Image Source="unlock.png" Scale="0.7"></Image></Entry>
 			<Entry x:Name="passwordText" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
-			<Button x:Name="loginButon" Text="Connexion" Clicked="LoginAction" BorderColor="{StaticResource ButtonColor}" BackgroundColor="{StaticResource ButtonColor}" TextColor="White" BorderWidth="1" BorderRadius="5" />
+			<Button x:Name="loginButon" Text="Connexion" Clicked="LoginAction" BorderColor="{StaticResource DarkPrimaryColor}" BackgroundColor="{StaticResource DarkPrimaryColor}" TextColor="{StaticResource TextColor}" BorderWidth="1" BorderRadius="5" />
 			<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
-				<Button Text="Mot de passe oublié ?" Clicked="ForgetPasswordAction" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource FontColor}" />
-				<Button Text="Nouveau ? S'inscrire" Clicked="RegisterAction" VerticalOptions="Center" HorizontalOptions="EndAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource FontColor}" />
+				<Button Text="Mot de passe oublié ?" Clicked="ForgetPasswordAction" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
+				<Button Text="Nouveau ? S'inscrire" Clicked="RegisterAction" VerticalOptions="Center" HorizontalOptions="EndAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>

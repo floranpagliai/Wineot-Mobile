@@ -21,7 +21,7 @@ namespace Wineot
 				if (userService.getUser ().token == null)
 					await this.DisplayAlert ("Erreur", "Utillisateur ou mot de passe invalide", "OK");
 				else {
-					await Navigation.PushModalAsync (new MenuPage ());
+					await Navigation.PushModalAsync (new MainPage ());
 					System.Diagnostics.Debug.WriteLine (userService.getUser ().historicWines[0].id);
 				}
 			} else {
