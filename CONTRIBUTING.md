@@ -16,6 +16,7 @@ La merge request devra porter le nom de la version :
 Exemple : Version 0.5
 
 
+
 Bonnes pratiques :
 
 * Préférer mettre les éléments de layout dans le XAML plutot que dans le code.
@@ -23,4 +24,5 @@ Bonnes pratiques :
 * Toujours essayer de mutualiser le code au maximum.
 * Une bibliothèque est présente dans la classe Wineot.xaml avec la définitions des couleurs utilisées dans l'app
 Pour les utiliser voici un exemple : {StaticResource DarkPrimaryColor}.
+
 Si besoin d'ajouter un couleur ou une variable ou autre merci de l'ajouter dans cette bibliothèque.
