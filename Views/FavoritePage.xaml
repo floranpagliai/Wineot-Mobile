@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Wineot.HistoryPage" Title="Historique">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Wineot.FavoritePage" Title="Favoris">
 	<ContentPage.Content>
 		<ListView x:Name="WineListView" IsPullToRefreshEnabled="False" RefreshCommand="{Binding GetWineHistoryAction}" SeparatorVisibility="None" RowHeight="84"  BackgroundColor="#eee" >
 			<ListView.ItemTemplate>
