@@ -17,7 +17,7 @@ namespace Wineot
 		private static string _baseUrlNew;
 
 
-		public static WineotRestClient getInstance
+		public static WineotRestClient Instance
 		{
 			get 
 			{
@@ -88,8 +88,7 @@ namespace Wineot
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
-				var result = JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
-				return result;
+				return JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
 			} else {
 				return new WineModel();
 			}
@@ -107,8 +106,8 @@ namespace Wineot
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
-				var result = JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
-				return result;
+				System.Diagnostics.Debug.WriteLine (content);
+				return JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
 			} else {
 				return new VintageModel();
 			}
