@@ -8,8 +8,8 @@
 			<StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" HeightRequest="90">
 				<Image Source="logo-black.png" Aspect="AspectFill" HeightRequest="70" />
 			</StackLayout>
-			<Entry x:Name="usernameText" Text="e" Placeholder="Nom d'utilisateur" HeightRequest="42" ><Image Source="unlock.png" Scale="0.7"></Image></Entry>
-			<Entry x:Name="passwordText" Text="a" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
+			<Entry x:Name="usernameText" Placeholder="Nom d'utilisateur" HeightRequest="42" ><Image Source="unlock.png" Scale="0.7"></Image></Entry>
+			<Entry x:Name="passwordText" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
 			<Button x:Name="loginButon" Text="Connexion" Clicked="LoginAction" BorderColor="{StaticResource DarkPrimaryColor}" BackgroundColor="{StaticResource DarkPrimaryColor}" TextColor="{StaticResource TextColor}" BorderWidth="1" BorderRadius="5" />
 			<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
 				<Button Text="Mot de passe oublié ?" Clicked="ForgetPasswordAction" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
