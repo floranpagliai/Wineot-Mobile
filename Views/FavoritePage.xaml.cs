@@ -25,7 +25,7 @@ namespace Wineot
 		/// </summary>
 		void GetUserWineFavorite()
 		{
-			var wines = UserService.Instance.getUser ().favoriteWines;
+			var wines = UserService.Instance.GetUser ().favoriteWines;
 			foreach(var wine in wines)
 			{
 				this.FetchWineToList (wine);

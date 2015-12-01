@@ -28,14 +28,14 @@ namespace Wineot
 			_user = new UserModel ();
 		}
 
-		public UserModel getUser()
+		public UserModel GetUser()
 		{
 			return _user;
 		}
 
-		public void SetUser(UserModel u)
+		public void SetUser(UserModel user)
 		{
-			user = u;
+			_user = user;
 		}
 
 		public async Task<UserModel> LoginAction (string username, string password)
