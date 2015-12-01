@@ -16,7 +16,7 @@ namespace Wineot
 		{
 			if (!string.IsNullOrWhiteSpace (usernameText.Text) && !string.IsNullOrWhiteSpace (passwordText.Text))
 			{
-				UserService userService = UserService.getInstance;
+				UserService userService = UserService.Instance;
 				await userService.LoginAction(usernameText.Text, passwordText.Text);
 				if (userService.getUser ().token == null)
 					await this.DisplayAlert ("Erreur", "Utillisateur ou mot de passe invalide", "OK");

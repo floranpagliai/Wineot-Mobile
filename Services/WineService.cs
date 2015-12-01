@@ -8,14 +8,14 @@ namespace Wineot
 		private static WineService _instance;
 		protected static WineotRestClient _client;
 
-		public static WineService getInstance
+		public static WineService Instance
 		{
 			get 
 			{
 				if (_instance == null)
 				{
 					_instance = new WineService();
-					_client = WineotRestClient.getInstance;
+					_client = WineotRestClient.Instance;
 				}
 				return _instance;
 			}

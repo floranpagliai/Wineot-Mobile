@@ -208,9 +208,9 @@
     <BundleResource Include="Resources\background%40x2.png" />
     <BundleResource Include="Resources\background-667h%402x.png" />
     <BundleResource Include="Resources\background.png" />
-    <BundleResource Include="Resources\unlike.png" />
-    <BundleResource Include="Resources\unlike%402x.png" />
-    <BundleResource Include="Resources\unlike%403x.png" />
+    <BundleResource Include="Resources\like.png" />
+    <BundleResource Include="Resources\like%402x.png" />
+    <BundleResource Include="Resources\like%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\Images.xcassets\AppIcons.appiconset\iTunesArtwork" />

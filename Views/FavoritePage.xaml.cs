@@ -12,7 +12,7 @@ namespace Wineot
 
 		public FavoritePage ()
 		{
-			this.Icon = "unlike.png";
+			this.Icon = "like.png";
 			Title = "Favoris"; 
 			InitializeComponent ();
 
@@ -25,7 +25,7 @@ namespace Wineot
 		/// </summary>
 		void GetUserWineFavorite()
 		{
-			var wines = UserService.getInstance.getUser ().favoriteWines;
+			var wines = UserService.Instance.getUser ().favoriteWines;
 			foreach(var wine in wines)
 			{
 				this.FetchWineToList (wine);
@@ -38,8 +38,9 @@ namespace Wineot
 		/// <param name="id">Identifier.</param>
 		async void FetchWineToList(string id)
 		{
-			_wines.Add (await WineService.getInstance.GetVintageAction (id));
-
+			VintageModel wine = await WineService.Instance.GetVintageAction (id);
+			if (!string.IsNullOrWhiteSpace (wine.name))
+				_wines.Add (wine);
 		}
 	}
 }

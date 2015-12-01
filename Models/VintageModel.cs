@@ -34,6 +34,7 @@ namespace Wineot
 
 		public VintageModel ()
 		{
+			this.wine = new WineModel ();
 		}
 	}
 }

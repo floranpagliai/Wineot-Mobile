@@ -25,7 +25,7 @@ namespace Wineot
 		/// </summary>
 		void GetUserWineHistory()
 		{
-			var wines = UserService.getInstance.getUser ().historicWines;
+			var wines = UserService.Instance.getUser ().historicWines;
 			foreach(var wine in wines)
 			{
 				this.FetchWineToList (wine.id);
@@ -38,7 +38,7 @@ namespace Wineot
 		/// <param name="id">Identifier.</param>
 		async void FetchWineToList(string id)
 		{
-			WineModel wine = await WineService.getInstance.GetWineAction (id);
+			WineModel wine = await WineService.Instance.GetWineAction (id);
 			if (!string.IsNullOrWhiteSpace (wine.name))
 				_wines.Add (wine);
 		}
