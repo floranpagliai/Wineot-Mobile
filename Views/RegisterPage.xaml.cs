@@ -9,7 +9,6 @@ namespace Wineot
 	{
 		public RegisterPage ()
 		{
-			this.BackgroundImage = "background.jpg";
 			InitializeComponent ();
 		}
 

@@ -150,12 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Wineot.csproj">
-      <Project>{A3F2BC32-4615-41FE-8963-7CE321A57EAD}</Project>
-      <Name>Wineot</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
@@ -176,9 +170,10 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\background-667h%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\background%40x2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\background-568h%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\background.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -193,14 +188,6 @@
   <Import Project="..\packages\Xamarin.Insights.1.10.6\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.10.6\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
   <Import Project="..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
-    <BundleResource Include="Resources\background.jpg">
-      <LogicalName>Wineot.Resources.background.jpg</LogicalName>
-    </BundleResource>
-    <BundleResource Include="Resources\background%402x.jpg" />
-    <BundleResource Include="Resources\background%403x.jpg" />
-    <BundleResource Include="Resources\logo-black.png" />
-    <BundleResource Include="Resources\logo-black%402x.png" />
-    <BundleResource Include="Resources\logo-black%403x.png" />
     <BundleResource Include="Resources\unlock.png" />
     <BundleResource Include="Resources\unlock%402x.png" />
     <BundleResource Include="Resources\unlock%403x.png" />
@@ -220,6 +207,16 @@
     <BundleResource Include="Resources\history%402x.png" />
     <BundleResource Include="Resources\history%403x.png" />
     <BundleResource Include="Resources\flags\fr.png" />
+    <BundleResource Include="Resources\logo-black.png" />
+    <BundleResource Include="Resources\logo-black%402x.png" />
+    <BundleResource Include="Resources\logo-black%403x.png" />
+    <BundleResource Include="Resources\background-568h%402x.png" />
+    <BundleResource Include="Resources\background%40x2.png" />
+    <BundleResource Include="Resources\background-667h%402x.png" />
+    <BundleResource Include="Resources\background.png" />
+    <BundleResource Include="Resources\like.png" />
+    <BundleResource Include="Resources\like%402x.png" />
+    <BundleResource Include="Resources\like%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\Images.xcassets\AppIcons.appiconset\iTunesArtwork" />
@@ -227,5 +224,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\flags\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wineot.csproj">
+      <Project>{A3F2BC32-4615-41FE-8963-7CE321A57EAD}</Project>
+      <Name>Wineot</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

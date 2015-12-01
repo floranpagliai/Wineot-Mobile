@@ -6,29 +6,29 @@ using System.Collections.ObjectModel;
 
 namespace Wineot
 {
-	public partial class HistoryPage : ContentPage
+	public partial class FavoritePage : ContentPage
 	{
-		ObservableCollection<WineModel> _wines = new ObservableCollection<WineModel>();
+		ObservableCollection<VintageModel> _wines = new ObservableCollection<VintageModel>();
 
-		public HistoryPage ()
+		public FavoritePage ()
 		{
-			this.Icon = "history.png";
-			Title = "Historique"; 
+			this.Icon = "like.png";
+			Title = "Favoris"; 
 			InitializeComponent ();
 
 			WineListView.ItemsSource = _wines;
-			this.GetUserWineHistory ();
+			this.GetUserWineFavorite ();
 		}
 
 		/// <summary>
-		/// Gets the user's wine history.
+		/// Gets the user wine favorite.
 		/// </summary>
-		void GetUserWineHistory()
+		void GetUserWineFavorite()
 		{
-			var wines = UserService.Instance.GetUser ().historicWines;
+			var wines = UserService.Instance.GetUser ().favoriteWines;
 			foreach(var wine in wines)
 			{
-				this.FetchWineToList (wine.id);
+				this.FetchWineToList (wine);
 			}
 		}
 
@@ -38,12 +38,10 @@ namespace Wineot
 		/// <param name="id">Identifier.</param>
 		async void FetchWineToList(string id)
 		{
-			WineModel wine = await WineService.Instance.GetWineAction (id);
+			VintageModel wine = await WineService.Instance.GetVintageAction (id);
 			if (!string.IsNullOrWhiteSpace (wine.name))
 				_wines.Add (wine);
 		}
 	}
 }
-
-
 

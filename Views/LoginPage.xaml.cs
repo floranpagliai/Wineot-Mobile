@@ -22,9 +22,9 @@ namespace Wineot
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-			var listU = SQLiteService.FetchObject<UserModel> (u => 1 == 1);
-			if (listU.Count > 0) {
-				UserService.getInstance.SetUser (listU [0]);
+			var users = SQLiteService.FetchObject<UserModel> (u => 1 == 1);
+			if (users.Count > 0) {
+				UserService.Instance.SetUser (users [0]);
 				Navigation.PushModalAsync (new MainPage ());
 			}
 		}
@@ -41,16 +41,16 @@ namespace Wineot
 		{
 			if (!string.IsNullOrWhiteSpace (usernameText.Text) && !string.IsNullOrWhiteSpace (passwordText.Text))
 			{
-				UserService userService = UserService.getInstance;
-				await userService.LoginAction (usernameText.Text, passwordText.Text);
-				if (userService.getUser ().token == null)
+				UserService userService = UserService.Instance;
+				await userService.LoginAction(usernameText.Text, passwordText.Text);
+				if (userService.GetUser ().token == null)
 					await this.DisplayAlert ("Erreur", "Utillisateur ou mot de passe invalide", "OK");
 				else {
-					var user = userService.getUser ();
+					var user = userService.GetUser ();
 					//Insert or update the user in the database and all of his child object a.k.a HistoricWine objects 
 					SQLiteService.Insert_UpdateObject<UserModel> (user);
-					await Navigation.PushAsync (new MainPage ());
-					System.Diagnostics.Debug.WriteLine (userService.getUser ().historicWines[0].id);
+					await Navigation.PushModalAsync (new MainPage ());
+					System.Diagnostics.Debug.WriteLine (userService.GetUser ().historicWines[0].id);
 				}
 			} else {
 				//InputEffectExtensions.InputChangeBorderColor(usernameTextInput, "#e4655f", 0.5f);
