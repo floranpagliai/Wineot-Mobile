@@ -47,9 +47,6 @@ namespace Wineot
 
 		[JsonProperty("date")]
 		public string date { get; set; }
-	
-		[ManyToOne]
-		public UserModel UserModel { get; set; }
 	}
 }
 

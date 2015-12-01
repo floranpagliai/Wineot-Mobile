@@ -11,22 +11,20 @@ namespace Wineot
 	public class SQLiteService
 	{
 
-		private string dbPath;
+		private string _dbPath;
 
-		#region Singleton
 
 		private static volatile SQLiteService _instance = null;
-		private static object syncRoot = new Object ();
+		private static object _syncRoot = new Object ();
 
-		private SQLiteService ()
-		{
+		private SQLiteService () { }
 
-		}
+		#region Singleton
 
 		public static SQLiteService Instance {
 			get {
 				if (_instance == null) {
-					lock (syncRoot) {
+					lock (_syncRoot) {
 						if (_instance == null)
 							_instance = new SQLiteService ();
 					}
@@ -46,7 +44,7 @@ namespace Wineot
 			connection.CreateTable<UserModel> ();
 			connection.CreateTable<HistoricWine> ();
 
-			SQLiteService.Instance.dbPath = filePath;
+			SQLiteService.Instance._dbPath = filePath;
 		}
 
 		public static bool Insert_UpdateObject<T> (T obj)
