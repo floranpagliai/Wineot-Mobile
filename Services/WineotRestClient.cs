@@ -28,6 +28,7 @@ namespace Wineot
 					//_client.MaxResponseContentBufferSize = 256000;
 					_baseUrl = "http://5.196.65.30:8181";
 					_baseUrlNew = "http://wineot.net/api";
+					//_baseUrlNew = "http://localhost:8888/Wineot/web/api";
 				}
 				return _instance;
 			}
@@ -91,6 +92,25 @@ namespace Wineot
 				return result;
 			} else {
 				return new WineModel();
+			}
+		}
+
+		public async Task<VintageModel> getVintage(string id)
+		{
+			var uri = new Uri (_baseUrlNew + "/wine/vintage/" + id);
+			var request = new HttpRequestMessage ();
+
+			request.RequestUri = uri;
+			request.Method = HttpMethod.Get;
+			//request.Headers.Add ("token", UserService.getInstance.getUser().token);
+
+			var response = await _client.SendAsync (request);
+			if (response.IsSuccessStatusCode) {
+				var content = await response.Content.ReadAsStringAsync ();
+				var result = JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
+				return result;
+			} else {
+				return new VintageModel();
 			}
 		}
 	}

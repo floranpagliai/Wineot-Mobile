@@ -25,6 +25,11 @@ namespace Wineot
 		{
 			return await _client.getWine(id);
 		}
+
+		public async Task<VintageModel> GetVintageAction (string id)
+		{
+			return await _client.getVintage(id);
+		}
 	}
 }
 

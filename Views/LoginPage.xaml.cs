@@ -49,7 +49,7 @@ namespace Wineot
 					var user = userService.getUser ();
 					//Insert or update the user in the database and all of his child object a.k.a HistoricWine objects 
 					SQLiteService.Insert_UpdateObject<UserModel> (user);
-					await Navigation.PushAsync (new MainPage ());
+					await Navigation.PushModalAsync (new MainPage ());
 					System.Diagnostics.Debug.WriteLine (userService.getUser ().historicWines[0].id);
 				}
 			} else {
