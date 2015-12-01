@@ -33,6 +33,11 @@ namespace Wineot
 			return user;
 		}
 
+		public void SetUser(UserModel u)
+		{
+			user = u;
+		}
+
 		public async Task<UserModel> LoginAction (string username, string password)
 		{
 			user = await _client.postLogin(username, MD5CryptoServiceProvider.GetMd5String(password));
