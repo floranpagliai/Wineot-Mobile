@@ -12,9 +12,9 @@ namespace Wineot
 	public class WineotRestClient
 	{
 		private static WineotRestClient _instance;
-		private static HttpClient _client;
-		private static string _baseUrl;
-		private static string _baseUrlNew;
+		private static HttpClient 		_client;
+		private static string			_baseUrl;
+		private static string 			_baseUrlNew;
 
 
 		public static WineotRestClient Instance
@@ -48,10 +48,9 @@ namespace Wineot
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
 				var result = JsonConvert.DeserializeObject <UserModel> (JObject.Parse (content) ["user"].ToString ());
-				System.Diagnostics.Debug.WriteLine (content);
 				return result;
 			} else {
-				return new UserModel();
+				return null;
 			}
 		}
 
@@ -69,10 +68,9 @@ namespace Wineot
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
 				var result = JsonConvert.DeserializeObject <UserModel> (JObject.Parse (content) ["user"].ToString ());
-				System.Diagnostics.Debug.WriteLine (content);
 				return result;
 			} else {
-				return new UserModel();
+				return null;
 			}
 		}
 
@@ -83,14 +81,13 @@ namespace Wineot
 
 			request.RequestUri = uri;
 			request.Method = HttpMethod.Get;
-			//request.Headers.Add ("token", UserService.getInstance.getUser().token);
 
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
 				return JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
 			} else {
-				return new WineModel();
+				return null;
 			}
 		}
 
@@ -101,7 +98,6 @@ namespace Wineot
 
 			request.RequestUri = uri;
 			request.Method = HttpMethod.Get;
-			//request.Headers.Add ("token", UserService.getInstance.getUser().token);
 
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
@@ -109,7 +105,7 @@ namespace Wineot
 				System.Diagnostics.Debug.WriteLine (content);
 				return JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
 			} else {
-				return new VintageModel();
+				return null;
 			}
 		}
 	}

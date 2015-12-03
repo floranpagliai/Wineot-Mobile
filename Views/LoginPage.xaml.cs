@@ -22,17 +22,11 @@ namespace Wineot
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-			var users = SQLiteService.FetchObject<UserModel> (u => 1 == 1);
-			if (users.Count > 0) {
-				UserService.Instance.SetUser (users [0]);
-				Navigation.PushModalAsync (new MainPage ());
-			}
 		}
 
 		protected override void OnDisappearing ()
 		{
 			base.OnDisappearing ();
-
 		}
 
 		#endregion
@@ -43,7 +37,7 @@ namespace Wineot
 			{
 				UserService userService = UserService.Instance;
 				await userService.LoginAction(usernameText.Text, passwordText.Text);
-				if (userService.GetUser ().token == null)
+				if (userService.GetUser() == null)
 					await this.DisplayAlert ("Erreur", "Utillisateur ou mot de passe invalide", "OK");
 				else {
 					var user = userService.GetUser ();

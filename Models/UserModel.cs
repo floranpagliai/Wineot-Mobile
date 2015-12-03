@@ -31,6 +31,8 @@ namespace Wineot
 
 		public string favorite_wine_ids_blobbed { get; set; }
 
+		public bool isCurrentUser { get; set; }
+
 		public UserModel ()
 		{
 		}

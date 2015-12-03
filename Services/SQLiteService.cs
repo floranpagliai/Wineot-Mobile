@@ -36,13 +36,13 @@ namespace Wineot
 		#endregion
 
 
-		public static SQLiteConnection connection;
+		public static SQLiteConnection Connection;
 
 		public static void SetupDatabase (string filePath, ISQLitePlatform platForm)
 		{
-			connection = new SQLiteConnection (platForm, filePath);
-			connection.CreateTable<UserModel> ();
-			connection.CreateTable<HistoricWine> ();
+			Connection = new SQLiteConnection (platForm, filePath);
+			Connection.CreateTable<UserModel> ();
+			Connection.CreateTable<HistoricWine> ();
 
 			SQLiteService.Instance._dbPath = filePath;
 		}
@@ -50,7 +50,7 @@ namespace Wineot
 		public static bool Insert_UpdateObject<T> (T obj)
 		{
 			try {
-				connection.InsertOrReplaceWithChildren(obj, true);
+				Connection.InsertOrReplaceWithChildren(obj, true);
 				return true;
 			} catch (Exception ex) {
 				return false;
@@ -60,7 +60,7 @@ namespace Wineot
 		public static List<U> FetchObject<U> (Expression<Func<U, bool>> pred) where U: class
 		{
 			try {
-				var res = connection.GetAllWithChildren<U>(null, true);
+				var res = Connection.GetAllWithChildren<U>(null, true);
 				return res;
 			} catch (Exception ex) {
 				return null;
