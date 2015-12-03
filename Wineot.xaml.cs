@@ -10,8 +10,6 @@ namespace Wineot
 		{
 			// The root page of your application
 			InitializeComponent();
-
-			//TODO
 			var users = SQLiteService.FetchObject<UserModel> (u => u.isCurrentUser == true);
 			if (users.Count > 0) {
 				UserService.Instance.SetUser (users [0]);
