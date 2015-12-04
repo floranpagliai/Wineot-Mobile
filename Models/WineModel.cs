@@ -24,6 +24,12 @@ namespace Wineot
 		[JsonProperty("vintages")]
 		public List<VintageModel> vintages { get; set; }
 
+		[JsonProperty("avg_rating")]
+		public double? avgRating { get; set; }
+
+		[JsonProperty("avg_price")]
+		public double? avgPrice { get; set; }
+
 		public WineModel ()
 		{
 		}

@@ -1,6 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Wineot.FavoritePage" Title="Favoris">
 	<ContentPage.Content>
-		<include layout="@WineList/WineListView" />
+		<ListView x:Name="WineListView" IsPullToRefreshEnabled="False" RefreshCommand="{Binding GetWineHistoryAction}" SeparatorVisibility="None" RowHeight="90"  BackgroundColor="#eee" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Vertical" BackgroundColor="#eee" >
+							<StackLayout Orientation="Horizontal" BackgroundColor="White" >
+								<Image Source="background.png" HeightRequest="90" HorizontalOptions="Start"/>
+								<StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="CenterAndExpand">
+									<Label Text="{Binding winery.name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+									<StackLayout Orientation="Horizontal" >
+										<Label Text="{Binding name}" TextColor="{StaticResource PrimaryTextColor}"/>
+										<Label Text="{Binding vintage}" TextColor="{StaticResource PrimaryTextColor}"/>
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" >
+										<StackLayout Orientation="Horizontal" >
+											<Image Source="flags/fr.png" HeightRequest="12" WidthRequest="12"/>
+											<Label Text="{Binding winery.country}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10"/>
+											<Label Text="-" TextColor="{StaticResource SecondaryTextColor}" FontSize="10"/>
+											<Label Text="{Binding winery.region}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10"/>
+										</StackLayout>
+										<StackLayout Orientation="Horizontal" Spacing="0" >
+											<Label Text="{Binding avgRating}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10"/>
+											<Image Source="star_unselected.png" HeightRequest="10" />
+										</StackLayout>
+									</StackLayout>
+									<Label Text="{Binding color}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+								</StackLayout>
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</ContentPage.Content>
 </ContentPage>

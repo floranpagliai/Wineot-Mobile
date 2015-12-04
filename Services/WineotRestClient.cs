@@ -88,6 +88,7 @@ namespace Wineot
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
+				System.Diagnostics.Debug.WriteLine (content);
 				return JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
 			} else {
 				return new WineModel();
