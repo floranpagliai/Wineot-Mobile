@@ -4,12 +4,19 @@ using Xamarin.Forms;
 
 namespace Wineot
 {
-	public class App : Application
+	public partial class App : Application
 	{
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new Wineot.LoginPage ();
+			InitializeComponent();
+			var users = SQLiteService.FetchObject<UserModel> (u => u.isCurrentUser == true);
+			if (users.Count > 0) {
+				UserService.Instance.SetUser (users [0]);
+				MainPage = new Wineot.MainPage ();
+			}
+			else
+				MainPage = new Wineot.LoginPage ();
 		}
 
 		protected override void OnStart ()

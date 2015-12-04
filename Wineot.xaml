@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Wineot.App">
+	<Application.Resources>
+		<ResourceDictionary>
+			<Style x:Key="ButtonStyle" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="Yellow" />
+			</Style>
+			<Color x:FactoryMethod="FromHex" x:Key="ButtonColor">
+				<x:Arguments>
+					<x:String>#c41230</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="DarkPrimaryColor">
+				<x:Arguments>
+					<x:String>#D32F2F</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="PrimaryColor">
+				<x:Arguments>
+					<x:String>#F44336</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="LightPrimaryColor">
+				<x:Arguments>
+					<x:String>#FFCDD2</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="PrimaryTextColor">
+				<x:Arguments>
+					<x:String>#212121</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="SecondaryTextColor">
+				<x:Arguments>
+					<x:String>#727272</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="TextColor">
+				<x:Arguments>
+					<x:String>#FFFFFF</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="DividerColor">
+				<x:Arguments>
+					<x:String>#B6B6B6</x:String>
+				</x:Arguments>
+			</Color>
+			<Color x:FactoryMethod="FromHex" x:Key="AccentColor">
+				<x:Arguments>
+					<x:String>#607D8B</x:String>
+				</x:Arguments>
+			</Color>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

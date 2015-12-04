@@ -1,23 +1,37 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 
 namespace Wineot
 {
 	public class UserModel
 	{
 		[JsonProperty("_id")]
-		public string _id { get; set; }
+		[PrimaryKey]
+		public string id { get; set; }
+
 		[JsonProperty("username")]
-		public string _username { get; set; }
+		public string username { get; set; }
+
 		[JsonProperty("mail")]
-		public string _email { get; set; }
+		public string email { get; set; }
+
 		[JsonProperty("token")]
-		public string _token { get; set; }
+		public string token { get; set; }
+
 		[JsonProperty("historic_wine_ids")]
-		public List<HistoricWine> _historicWines { get; set; }
+		[OneToMany(CascadeOperations = CascadeOperation.All)] 
+		public List<HistoricWine> historicWines { get; set; }
+
 		[JsonProperty("favorite_wine_ids")]
-		public List<string> _favoriteWines { get; set; }
+		[TextBlob("favorite_wine_ids_blobbed")]
+		public List<string> favoriteWines { get; set; }
+
+		public string favorite_wine_ids_blobbed { get; set; }
+
+		public bool isCurrentUser { get; set; }
 
 		public UserModel ()
 		{
@@ -27,9 +41,14 @@ namespace Wineot
 	public class HistoricWine
 	{
 		[JsonProperty("wine_id")]
-		public string _id { get; set; }
+		[PrimaryKey]
+		public string id { get; set; }
+
+		[ForeignKey(typeof(UserModel))] 
+		public string UserModelId {get; set; }
+
 		[JsonProperty("date")]
-		public string _date { get; set; }
+		public string date { get; set; }
 	}
 }
 

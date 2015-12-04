@@ -1,22 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Wineot.HistoryPage" Title="Historique">
-	<ContentPage.Padding>
-		<OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
-	</ContentPage.Padding>
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<Color x:FactoryMethod="FromHex" x:Key="ButtonColor">
-				<x:Arguments>
-					<x:String>#c41230</x:String>
-				</x:Arguments>
-			</Color>
-		</ResourceDictionary>
-	</ContentPage.Resources>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Wineot.HistoryPage" Title="Historique">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
-			<Entry x:Name="usernameText2" Placeholder="Nom d'utilisateur" HeightRequest="42" />
-			<Entry x:Name="passwordText2" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
-			<Button x:Name="testButon" Text="Connexion" Clicked="OnClick" />
-		</StackLayout>
+		<ListView x:Name="WineListView" IsPullToRefreshEnabled="False" RefreshCommand="{Binding GetWineHistoryAction}" SeparatorVisibility="None" RowHeight="90"  BackgroundColor="#eee" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Vertical" BackgroundColor="#eee" >
+							<StackLayout Orientation="Horizontal" BackgroundColor="White" >
+								<Image Source="background.png" HeightRequest="90" HorizontalOptions="Start"/>
+								<StackLayout Orientation="Vertical" Spacing="2" VerticalOptions="CenterAndExpand">
+									<Label Text="{Binding winery.name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+									<Label Text="{Binding name}" TextColor="{StaticResource PrimaryTextColor}"/>
+									<StackLayout Orientation="Horizontal">
+										<Image Source="flags/fr.png" HeightRequest="15" WidthRequest="15"/>
+										<Label Text="{Binding winery.country}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+										<Label Text="-" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+										<Label Text="{Binding winery.region}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+									</StackLayout>
+									<Label Text="{Binding color}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12"/>
+								</StackLayout>
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</ContentPage.Content>
 </ContentPage>
