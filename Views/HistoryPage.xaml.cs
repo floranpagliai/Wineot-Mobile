@@ -17,23 +17,33 @@ namespace Wineot
 			InitializeComponent ();
 
 			WineListView.ItemsSource = _wines;
-			this.GetWineHistoryAction ();
+			this.GetUserWineHistory ();
 		}
 
-		async void GetWineHistoryAction()
+		/// <summary>
+		/// Gets the user's wine history.
+		/// </summary>
+		void GetUserWineHistory()
 		{
-			var wines = UserService.getInstance.getUser ().historicWines;
+			var wines = UserService.Instance.GetUser ().historicWines;
 			foreach(var wine in wines)
 			{
-				WineModel wineElem = await WineService.getInstance.GetWineAction (wine.id);
-
-				System.Diagnostics.Debug.WriteLine (wine.date);
-				//System.Diagnostics.Debug.WriteLine (wineElem.name);
-
-				if (wineElem.name != "")
-					_wines.Add (wineElem);
+				this.FetchWineToList (wine.id);
 			}
+		}
+
+		/// <summary>
+		/// Fetchs the wine to list.
+		/// </summary>
+		/// <param name="id">Identifier.</param>
+		async void FetchWineToList(string id)
+		{
+			WineModel wine = await WineService.Instance.GetWineAction (id);
+			if (!string.IsNullOrWhiteSpace (wine.name))
+				_wines.Add (wine);
 		}
 	}
 }
+
+
 

@@ -12,12 +12,12 @@ namespace Wineot
 	public class WineotRestClient
 	{
 		private static WineotRestClient _instance;
-		private static HttpClient _client;
-		private static string _baseUrl;
-		private static string _baseUrlNew;
+		private static HttpClient 		_client;
+		private static string			_baseUrl;
+		private static string 			_baseUrlNew;
 
 
-		public static WineotRestClient getInstance
+		public static WineotRestClient Instance
 		{
 			get 
 			{
@@ -28,6 +28,7 @@ namespace Wineot
 					//_client.MaxResponseContentBufferSize = 256000;
 					_baseUrl = "http://5.196.65.30:8181";
 					_baseUrlNew = "http://wineot.net/api";
+					//_baseUrlNew = "http://localhost:8888/Wineot/web/api";
 				}
 				return _instance;
 			}
@@ -47,10 +48,9 @@ namespace Wineot
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
 				var result = JsonConvert.DeserializeObject <UserModel> (JObject.Parse (content) ["user"].ToString ());
-				System.Diagnostics.Debug.WriteLine (content);
 				return result;
 			} else {
-				return new UserModel();
+				return null;
 			}
 		}
 
@@ -68,10 +68,9 @@ namespace Wineot
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
 				var result = JsonConvert.DeserializeObject <UserModel> (JObject.Parse (content) ["user"].ToString ());
-				System.Diagnostics.Debug.WriteLine (content);
 				return result;
 			} else {
-				return new UserModel();
+				return null;
 			}
 		}
 
@@ -82,15 +81,31 @@ namespace Wineot
 
 			request.RequestUri = uri;
 			request.Method = HttpMethod.Get;
-			//request.Headers.Add ("token", UserService.getInstance.getUser().token);
 
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
-				var result = JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
-				return result;
+				return JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content).ToString ());
 			} else {
-				return new WineModel();
+				return null;
+			}
+		}
+
+		public async Task<VintageModel> getVintage(string id)
+		{
+			var uri = new Uri (_baseUrlNew + "/wine/vintage/" + id);
+			var request = new HttpRequestMessage ();
+
+			request.RequestUri = uri;
+			request.Method = HttpMethod.Get;
+
+			var response = await _client.SendAsync (request);
+			if (response.IsSuccessStatusCode) {
+				var content = await response.Content.ReadAsStringAsync ();
+				System.Diagnostics.Debug.WriteLine (content);
+				return JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
+			} else {
+				return null;
 			}
 		}
 	}
