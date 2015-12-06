@@ -211,6 +211,9 @@
     <BundleResource Include="Resources\like.png" />
     <BundleResource Include="Resources\like%402x.png" />
     <BundleResource Include="Resources\like%403x.png" />
+    <BundleResource Include="Resources\tag.png" />
+    <BundleResource Include="Resources\tag%402x.png" />
+    <BundleResource Include="Resources\tag%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\Images.xcassets\AppIcons.appiconset\iTunesArtwork" />

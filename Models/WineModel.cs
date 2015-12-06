@@ -33,6 +33,16 @@ namespace Wineot
 		public WineModel ()
 		{
 		}
+
+		public string GetWineColor()
+		{
+			if (this.color == 0)
+				return "Rouge";
+			else if (this.color == 1)
+				return "Blanc";
+			else
+				return "Rosé";
+		}
 	}
 }
 
