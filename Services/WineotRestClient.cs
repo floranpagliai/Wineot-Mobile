@@ -20,15 +20,15 @@ namespace Wineot
 		public static WineotRestClient Instance
 		{
 			get 
-			{
+			{ 
 				if (_instance == null)
 				{
 					_instance = new WineotRestClient();
 					_client = new HttpClient();
 					//_client.MaxResponseContentBufferSize = 256000;
 					_baseUrl = "http://5.196.65.30:8181";
-					_baseUrlNew = "http://wineot.net/api";
-					//_baseUrlNew = "http://localhost:8888/Wineot/web/api";
+					//_baseUrlNew = "http://wineot.net/api";
+					_baseUrlNew = "http://localhost:8888/Wineot/web/api";
 				}
 				return _instance;
 			}
@@ -102,7 +102,6 @@ namespace Wineot
 			var response = await _client.SendAsync (request);
 			if (response.IsSuccessStatusCode) {
 				var content = await response.Content.ReadAsStringAsync ();
-				System.Diagnostics.Debug.WriteLine (content);
 				return JsonConvert.DeserializeObject <VintageModel> (JObject.Parse (content).ToString ());
 			} else {
 				return null;
