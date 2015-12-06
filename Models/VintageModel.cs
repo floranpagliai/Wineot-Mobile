@@ -26,6 +26,12 @@ namespace Wineot
 		[JsonProperty("keeping")]
 		public int? keeping { get; set; }
 
+		[JsonProperty("avg_rating")]
+		public double? avgRating { get; set; }
+
+		[JsonProperty("avg_price")]
+		public double? avgPrice { get; set; }
+
 		public string name { get { return wine.name; } }
 
 		public WineryModel winery { get { return wine.winery; } }
