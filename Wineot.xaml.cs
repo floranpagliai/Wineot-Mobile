@@ -10,7 +10,13 @@ namespace Wineot
 		{
 			// The root page of your application
 			InitializeComponent();
-			MainPage = new Wineot.LoginPage ();
+			var users = SQLiteService.FetchObject<UserModel> (u => u.isCurrentUser == true);
+			if (users.Count > 0) {
+				UserService.Instance.SetUser (users [0]);
+				MainPage = new Wineot.MainPage ();
+			}
+			else
+				MainPage = new Wineot.LoginPage ();
 		}
 
 		protected override void OnStart ()

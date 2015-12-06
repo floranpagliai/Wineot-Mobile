@@ -25,7 +25,7 @@ namespace Wineot
 		/// </summary>
 		void GetUserWineFavorite()
 		{
-			var wines = UserService.Instance.getUser ().favoriteWines;
+			var wines = UserService.Instance.GetUser ().favoriteWines;
 			foreach(var wine in wines)
 			{
 				this.FetchWineToList (wine);
@@ -39,7 +39,7 @@ namespace Wineot
 		async void FetchWineToList(string id)
 		{
 			VintageModel wine = await WineService.Instance.GetVintageAction (id);
-			if (!string.IsNullOrWhiteSpace (wine.name))
+			if (wine != null && !string.IsNullOrWhiteSpace (wine.name))
 				_wines.Add (wine);
 		}
 	}

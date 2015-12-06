@@ -25,7 +25,7 @@ namespace Wineot
 		/// </summary>
 		void GetUserWineHistory()
 		{
-			var wines = UserService.Instance.getUser ().historicWines;
+			var wines = UserService.Instance.GetUser ().historicWines;
 			foreach(var wine in wines)
 			{
 				this.FetchWineToList (wine.id);
