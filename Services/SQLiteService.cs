@@ -13,7 +13,6 @@ namespace Wineot
 
 		private string _dbPath;
 
-
 		private static volatile SQLiteService _instance = null;
 		private static object _syncRoot = new Object ();
 
@@ -21,7 +20,8 @@ namespace Wineot
 
 		#region Singleton
 
-		public static SQLiteService Instance {
+		public static SQLiteService Instance 
+		{
 			get {
 				if (_instance == null) {
 					lock (_syncRoot) {

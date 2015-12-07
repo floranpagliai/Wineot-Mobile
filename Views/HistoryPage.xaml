@@ -19,7 +19,7 @@
 									</StackLayout>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="5">
 										<StackLayout Orientation="Horizontal" Spacing="1" HorizontalOptions="StartAndExpand">
-											<Label Text="{Binding color}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
+											<Label Text="{Binding GetWineColor}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 										</StackLayout>
 										<StackLayout Orientation="Horizontal" Spacing="1" HorizontalOptions="CenterAndExpand">
 											<Image Source="star_unselected.png" HeightRequest="10" />

@@ -1,6 +1,4 @@
 ﻿using System;
-using RestSharp.Portable;
-
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -27,8 +25,8 @@ namespace Wineot
 					_client = new HttpClient();
 					//_client.MaxResponseContentBufferSize = 256000;
 					_baseUrl = "http://5.196.65.30:8181";
-					//_baseUrlNew = "http://wineot.net/api";
-					_baseUrlNew = "http://localhost:8888/Wineot/web/api";
+					_baseUrlNew = "http://wineot.net/api";
+					//_baseUrlNew = "http://localhost:8888/Wineot/web/api";
 				}
 				return _instance;
 			}

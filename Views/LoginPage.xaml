@@ -15,7 +15,7 @@
 					<Entry x:Name="passwordText" Placeholder="Mot de passe" IsPassword="true" HeightRequest="42" />
 					<Button x:Name="loginButon" Text="Connexion" Clicked="LoginAction" BorderColor="{StaticResource DarkPrimaryColor}" BackgroundColor="{StaticResource DarkPrimaryColor}" TextColor="{StaticResource TextColor}" BorderWidth="1" BorderRadius="5" />
 					<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
-						<Button Text="Mot de passe oublié ?" Clicked="ForgetPasswordAction" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
+						<Button Text="Mot de passe oublié ?" Clicked="ForgetPasswordAction" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" BackgroundColor="none" BorderWidth="0" />
 						<Button Text="Nouveau ? S'inscrire" Clicked="RegisterAction" VerticalOptions="Center" HorizontalOptions="EndAndExpand" FontAttributes="None" FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
 					</StackLayout>
 				</StackLayout>
