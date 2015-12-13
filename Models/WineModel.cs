@@ -34,15 +34,54 @@ namespace Wineot
 		{
 		}
 
-		public string GetWineColor()
+		public string GetWineColor
 		{
+			get
+			{			
 			if (this.color == 0)
 				return "Rouge";
 			else if (this.color == 1)
 				return "Blanc";
 			else
 				return "Rosé";
+			}
 		}
+
+		public string GetWineColorIcon
+		{
+			get
+			{			
+				if (this.color == 0)
+					return "wine_color_red.png";
+				else if (this.color == 1)
+					return "wine_color_white.png";
+				else
+					return "wine_color_pink.png";
+			}
+		}
+
+		public string GetAvgPrice
+		{
+			get
+			{
+				if (avgPrice != null)
+					return avgPrice.ToString ();
+				else
+					return "-";
+			}
+		}
+
+		public string GetAvgRating
+		{
+			get
+			{
+				if (avgRating != null)
+					return avgRating.ToString ();
+				else
+					return "-";
+			}
+		}
+			
 	}
 }
 

@@ -26,6 +26,11 @@ namespace Wineot
 			return await _client.getWine(id);
 		}
 
+		public async Task<WineModel> GetWineRecognitionAction (string picture)
+		{
+			return await _client.postRecognition(UserService.Instance.GetUser().id, picture);
+		}
+
 		public async Task<VintageModel> GetVintageAction (string id)
 		{
 			return await _client.getVintage(id);

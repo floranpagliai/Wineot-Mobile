@@ -72,6 +72,27 @@ namespace Wineot
 			}
 		}
 
+		public async Task<WineModel> postRecognition(string userId, string picture)
+		{
+			var uri = new Uri (_baseUrl + "/photo/recognition");
+			Dictionary<string, string> postData = new Dictionary<string, string>();
+
+			postData.Add("user_id", userId);
+			postData.Add("picture", picture);
+
+			var formContent = new FormUrlEncodedContent(postData);
+
+			var response = await _client.PostAsync(uri, formContent);
+			if (response.IsSuccessStatusCode) {
+				var content = await response.Content.ReadAsStringAsync ();
+				System.Diagnostics.Debug.WriteLine (content);
+				var result = JsonConvert.DeserializeObject <WineModel> (JObject.Parse (content) ["wine"].ToString ());
+				return result;
+			} else {
+				return null;
+			}
+		}
+
 		public async Task<WineModel> getWine(string id)
 		{
 			var uri = new Uri (_baseUrlNew + "/wine/" + id);

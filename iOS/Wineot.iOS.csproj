@@ -179,7 +179,6 @@
     <BundleResource Include="Resources\history.png" />
     <BundleResource Include="Resources\history%402x.png" />
     <BundleResource Include="Resources\history%403x.png" />
-    <BundleResource Include="Resources\flags\fr.png" />
     <BundleResource Include="Resources\logo-black.png" />
     <BundleResource Include="Resources\logo-black%402x.png" />
     <BundleResource Include="Resources\logo-black%403x.png" />
@@ -193,6 +192,19 @@
     <BundleResource Include="Resources\tag.png" />
     <BundleResource Include="Resources\tag%402x.png" />
     <BundleResource Include="Resources\tag%403x.png" />
+    <BundleResource Include="Resources\flags\France.png" />
+    <BundleResource Include="Resources\flags\Espagne.png" />
+    <BundleResource Include="Resources\flags\Italie.png" />
+    <BundleResource Include="Resources\flags\Chili.png" />
+    <BundleResource Include="Resources\wine_color_pink.png" />
+    <BundleResource Include="Resources\wine_color_pink%402x.png" />
+    <BundleResource Include="Resources\wine_color_pink%403x.png" />
+    <BundleResource Include="Resources\wine_color_red.png" />
+    <BundleResource Include="Resources\wine_color_red%402x.png" />
+    <BundleResource Include="Resources\wine_color_red%403x.png" />
+    <BundleResource Include="Resources\wine_color_white.png" />
+    <BundleResource Include="Resources\wine_color_white%402x.png" />
+    <BundleResource Include="Resources\wine_color_white%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\Images.xcassets\AppIcons.appiconset\iTunesArtwork" />

@@ -20,6 +20,14 @@ namespace Wineot
 		public WineryModel ()
 		{
 		}
+
+		public string GetCountryIcon
+		{
+			get
+			{			
+				return "flags/" + country + ".png";
+			}
+		}
 	}
 }
 

@@ -11,6 +11,9 @@ namespace Wineot
 		[JsonProperty("name")]
 		public string name { get; set; }
 
+		[JsonProperty("code")]
+		public string code { get { return "fr"; }  }
+
 		public CountryModel ()
 		{
 		}

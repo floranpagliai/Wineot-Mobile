@@ -42,6 +42,28 @@ namespace Wineot
 		{
 			this.wine = new WineModel ();
 		}
+
+		public string GetAvgPrice
+		{
+			get
+			{
+				if (avgPrice != null)
+					return avgPrice.ToString ();
+				else
+					return "-";
+			}
+		}
+
+		public string GetAvgRating
+		{
+			get
+			{
+				if (avgRating != null)
+					return avgRating.ToString ();
+				else
+					return "-";
+			}
+		}
 	}
 }
 

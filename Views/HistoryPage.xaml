@@ -12,22 +12,25 @@
 									<Label Text="{Binding winery.name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12" />
 									<Label Text="{Binding name}" TextColor="{StaticResource PrimaryTextColor}" />
 									<StackLayout Orientation="Horizontal">
-										<Image Source="flags/fr.png" HeightRequest="15" WidthRequest="15" />
+										<Image Source="{Binding winery.GetCountryIcon}" HeightRequest="15" WidthRequest="15" />
 										<Label Text="{Binding winery.country}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12" />
 										<Label Text="-" TextColor="{StaticResource SecondaryTextColor}" FontSize="12" />
 										<Label Text="{Binding winery.region}" TextColor="{StaticResource SecondaryTextColor}" FontSize="12" />
 									</StackLayout>
-									<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="5">
+									<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="0, 5">
 										<StackLayout Orientation="Horizontal" Spacing="1" HorizontalOptions="StartAndExpand">
+											<Image Source="{Binding GetWineColorIcon}" HeightRequest="10" WidthRequest="10" />
 											<Label Text="{Binding GetWineColor}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 										</StackLayout>
 										<StackLayout Orientation="Horizontal" Spacing="1" HorizontalOptions="CenterAndExpand">
+											
+											<Label Text="{Binding GetAvgRating}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 											<Image Source="star_unselected.png" HeightRequest="10" />
-											<Label Text="{Binding avgRating}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 										</StackLayout>
 										<StackLayout Orientation="Horizontal" Spacing="1" HorizontalOptions="EndAndExpand">
+											
+											<Label Text="{Binding GetAvgPrice}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 											<Image Source="tag.png" HeightRequest="10" />
-											<Label Text="{Binding avgPrice}" TextColor="{StaticResource SecondaryTextColor}" FontSize="10" />
 										</StackLayout>
 									</StackLayout>
 								</StackLayout>

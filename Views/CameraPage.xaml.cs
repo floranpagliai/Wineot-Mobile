@@ -28,6 +28,11 @@ namespace Wineot
 						Directory = "Wineot",
 						Name = "test.jpg"
 					});
+
+				byte[] bytes = new byte[file.GetStream().Length];
+				file.GetStream().Read(bytes, 0, Convert.ToInt32(file.GetStream().Length));
+				String picture = Convert.ToBase64String(bytes);
+				WineService.Instance.GetWineRecognitionAction(picture);
 				ImageTest.Source = ImageSource.FromStream(() =>
 					{
 						var stream = file.GetStream();
