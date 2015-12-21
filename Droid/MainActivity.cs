@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using SVG.Forms.Plugin.Droid;
+using System.IO;
 
 namespace Wineot.Droid
 {
@@ -19,6 +20,11 @@ namespace Wineot.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+			string folderPath = System.Environment.GetFolderPath (System.Environment.SpecialFolder.Personal);
+			string dbPath = Path.Combine (folderPath, "wineot.sqlite3");
+
+			SQLiteService.SetupDatabase (dbPath, new  SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid ());
+			Console.WriteLine (dbPath);
 			SvgImageRenderer.Init();
 
 			LoadApplication (new App ());
