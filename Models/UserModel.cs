@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
-
+using System.Linq;
 namespace Wineot
 {
 	public class UserModel
