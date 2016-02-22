@@ -57,10 +57,10 @@ namespace Wineot
 			}
 		}
 
-		public static List<U> FetchObject<U> (Expression<Func<U, bool>> pred) where U: class
+		public static List<T> FetchObject<T> (Expression<Func<T, bool>> pred) where T: class
 		{
 			try {
-				var res = Connection.GetAllWithChildren<U>(null, true);
+				var res = Connection.GetAllWithChildren<T>(null, true);
 				return res;
 			} catch (Exception ex) {
 				return null;
